@@ -6,6 +6,14 @@
   <meta name="theme-color" content="#0b0e14" />
   <meta name="description" content="Give every AI agent a clear identity, narrow permissions, and a secure path to the tools it needs." />
   <title>Sentinel — Guardrails for agents that act</title>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('sentinel-theme');
+      document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
+    } catch (error) {
+      console.warn('Theme preference could not be loaded.', error);
+    }
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
     :root{--ink:#edf1f7;--muted:#a0adbf;--paper:#0b0e14;--white:#111722;--accent:#a78bfa;--deep:#121a27;--line:#252e3b;--orange:#f0a06c;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif;--display:'Manrope',sans-serif}
@@ -14,6 +22,44 @@
     @media(max-width:800px){.shell{width:min(100% - 36px,600px)}.nav{height:70px}.nav-links{display:none}.nav-actions .signin{display:none}.hero{grid-template-columns:1fr;gap:23px;padding:58px 0 60px}.hero h1{font-size:58px}.hero-visual{min-height:390px}.tag-one{left:0}.tag-two{right:0}.trust{gap:17px;align-items:start;flex-direction:column}.trust-items{gap:20px;flex-wrap:wrap}.section{padding:62px 0}.section-head{display:block}.section-head p{margin-top:15px}.problem-grid{grid-template-columns:1fr}.problem-card{min-height:0}.flow{grid-template-columns:1fr 1fr}.flow-step:nth-child(2){border-right:0}.flow-step:nth-child(-n+2){border-bottom:1px solid #303b4d}.flow-step:nth-child(2):after{display:none}.features{grid-template-columns:1fr}.dashboard-layout{grid-template-columns:1fr;gap:28px}.capability-band{align-items:start;flex-direction:column}.cap-tags{justify-content:start}.cta{margin:55px auto;padding:30px;align-items:start;flex-direction:column}.cta h2{font-size:30px}.footer{gap:16px;align-items:start;flex-direction:column}}
     @media(max-width:430px){.brand{font-size:18px}.nav-actions .button{padding:11px 12px;font-size:11px}.hero h1{font-size:49px}.hero-copy>p{font-size:14px}.hero-buttons{align-items:stretch;flex-direction:column}.hero-buttons .button{width:100%}.hero-visual{min-height:340px}.halo{width:320px;height:320px}.orbit{width:275px;height:275px}.console{transform:none}.floating-tag{font-size:9px;padding:8px}.tag-one{top:34px}.tag-two{bottom:32px}.flow-step{padding:18px 14px;min-height:190px}.trust-items{font-size:11px}.dash-stats{grid-template-columns:1fr 1fr}.dash-stat:nth-child(2){border-right:0}.dash-stat:last-child{display:none}.dash-row{grid-template-columns:1.1fr 1fr .7fr}.dash-row>*:nth-child(3){display:none}.cta{padding:24px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+    html[data-theme="light"]{--ink:#172033;--muted:#5d687a;--paper:#f7f8fc;--white:#fff;--accent:#7055d9;--deep:#e9edf5;--line:#dce2eb}
+    html[data-theme="light"] body{background:var(--paper);color:var(--ink)}
+    html[data-theme="light"] .eyebrow{color:#667085}
+    html[data-theme="light"] .nav{border-color:var(--line)}
+    html[data-theme="light"] .brand-mark{background:#ece9fb}
+    html[data-theme="light"] .nav-links,html[data-theme="light"] .nav-actions .signin{color:#586579}
+    html[data-theme="light"] .hero-copy>p,html[data-theme="light"] .event p,html[data-theme="light"] .workflow .flow-step p,html[data-theme="light"] .workflow .gateway-note,html[data-theme="light"] .capability-band p{color:#586579}
+    html[data-theme="light"] .event p b{color:var(--ink)}
+    html[data-theme="light"] .hero-note,html[data-theme="light"] .trust,html[data-theme="light"] .console-top,html[data-theme="light"] .agent-data small,html[data-theme="light"] .metric label,html[data-theme="light"] .dash-stat small,html[data-theme="light"] .dash-content-title,html[data-theme="light"] .dash-row.head,html[data-theme="light"] .footer-note{color:#667085}
+    html[data-theme="light"] .halo{background:radial-gradient(circle,#e9e5fa 0,#eef0f8 49%,transparent 70%)}
+    html[data-theme="light"] .orbit{border-color:#c9c3e0}
+    html[data-theme="light"] .console,html[data-theme="light"] .floating-tag{background:#fff;border-color:var(--line);box-shadow:0 24px 70px #1a25401a}
+    html[data-theme="light"] .console-top,html[data-theme="light"] .agent-row,html[data-theme="light"] .event,html[data-theme="light"] .dash-row{border-color:var(--line)}
+    html[data-theme="light"] .status,html[data-theme="light"] .agent-icon,html[data-theme="light"] .dash-head span,html[data-theme="light"] .dash-pill{background:#e8f4f7;color:#087a94}
+    html[data-theme="light"] .dots i{background:#c6ceda}
+    html[data-theme="light"] .metric,html[data-theme="light"] .problem-card,html[data-theme="light"] .feature{background:#fff;border-color:var(--line)}
+    html[data-theme="light"] .problem{background:#f0f3f8}
+    html[data-theme="light"] .card-icon{background:#ece9fb}
+    html[data-theme="light"] .workflow{background:#e9edf5;color:var(--ink)}
+    html[data-theme="light"] .workflow .eyebrow{color:#5945aa}
+    html[data-theme="light"] .workflow .section-head p{color:#586579}
+    html[data-theme="light"] .flow,html[data-theme="light"] .flow-step{border-color:#cbd3e0}
+    html[data-theme="light"] .flow-step:not(:last-child):after{background:#e9edf5}
+    html[data-theme="light"] .dashboard-section{background:#f7f8fc}
+    html[data-theme="light"] .dash-card{background:#fff;border-color:var(--line);box-shadow:0 16px 45px #1a254014}
+    html[data-theme="light"] .dash-head,html[data-theme="light"] .dash-stats,html[data-theme="light"] .dash-stat{border-color:var(--line)}
+    html[data-theme="light"] .dash-list div,html[data-theme="light"] .dash-row span{color:#586579}
+    html[data-theme="light"] .dash-pill.pending{background:#fff1e7;color:#a34d16!important}
+    html[data-theme="light"] .capability-band,html[data-theme="light"] .safety{background:#eceff5}
+    html[data-theme="light"] .capability-band strong{color:var(--ink)}
+    html[data-theme="light"] .cap-tags span{border-color:#d4cdef;color:#5945aa}
+    html[data-theme="light"] .event-icon{background:#fff1e7}
+    .theme-control{display:flex;justify-content:flex-end;padding-top:10px}
+    .theme-toggle{width:38px;height:38px;border:1px solid var(--line);border-radius:7px;background:var(--white);color:var(--ink);padding:8px;display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s}
+    .theme-toggle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .theme-toggle:hover{border-color:var(--accent);background:var(--deep)}
+    .theme-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    @media(max-width:800px){.theme-control{padding-top:8px}}
   </style>
 </head>
 <body>
@@ -22,6 +68,7 @@
     <nav class="nav-links" aria-label="Main navigation"><a href="#platform">Platform</a><a href="#dashboard">Dashboard</a><a href="#how-it-works">How it works</a><a href="#security">Security</a></nav>
     <div class="nav-actions"><a class="signin" href="#contact">Sign in</a><a class="button" href="mailto:ketepask@mail.uc.edu">Request early access <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
   </header>
+  <div class="shell theme-control"><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button></div>
   <main id="top">
     <section class="shell hero">
       <div class="hero-copy"><div class="eyebrow"><i class="live-dot"></i> CONTROL THE PATH. PROTECT THE SECRET.</div><h1>Agents that act.<br><span>Within limits.</span></h1><p>Give every AI agent a clear identity, narrow permissions, and a secure path to the tools it needs. Keep provider secrets on your server, where they belong.</p><div class="hero-buttons"><a class="button" href="mailto:ketepask@mail.uc.edu">Get early access <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="button outline" href="mailto:ketepask@mail.uc.edu">See how it works</a></div><div class="hero-note">BUILT FOR TEAMS SHIPPING AI AGENTS</div></div>
@@ -37,5 +84,30 @@
     <section class="shell cta" id="contact"><div><div class="eyebrow">START WITH A SAFER REQUEST PATH</div><h2>Build with boundaries.</h2><p>We’re shaping an early access program for teams putting AI agents to work.</p></div><a class="button" href="mailto:ketepask@mail.uc.edu">Talk to our team <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></section>
   </main>
   <footer class="shell footer"><div class="footer-left"><a class="brand" href="#top"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.8 20 6v5.1c0 5.2-3.4 8.5-8 10.1-4.6-1.6-8-4.9-8-10.1V6l8-3.2Z" stroke="currentColor" stroke-width="1.7"/><path d="m8.7 12.1 2.1 2.1 4.6-4.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>sentinel</a><span>© 2026 Sentinel</span></div><div class="footer-note">AI ACCESS CONTROL · VIRTUAL KEY GATEWAY</div></footer>
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const setTheme = theme => {
+      document.documentElement.dataset.theme = theme;
+      const isLight = theme === 'light';
+      const targetTheme = isLight ? 'dark' : 'light';
+      themeToggle.innerHTML = isLight
+        ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>'
+        : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>';
+      themeToggle.setAttribute('aria-label', `Switch to ${targetTheme} mode`);
+      themeToggle.title = `Switch to ${targetTheme} mode`;
+      themeToggle.setAttribute('aria-pressed', String(isLight));
+      document.querySelector('meta[name="theme-color"]').content = isLight ? '#f7f8fc' : '#0b0e14';
+    };
+    setTheme(document.documentElement.dataset.theme || 'dark');
+    themeToggle.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      setTheme(theme);
+      try {
+        localStorage.setItem('sentinel-theme', theme);
+      } catch (error) {
+        console.warn('Theme preference could not be saved.', error);
+      }
+    });
+  </script>
 </body>
 </html>
